@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webinar — Ngobrol Pintar (NGOPI) Bersama BKPSDM Kabupaten OKI</title>
+<meta name="description" content="Semua tautan pendaftaran dan rekaman webinar dalam satu halaman.">
+<meta property="og:title" content="Webinar — NGOPI Seri 2">
+<meta property="og:description" content="Semua tautan pendaftaran dan rekaman webinar dalam satu halaman.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --hutan:#12332F;
+    --hutan-muda:#1D4A44;
+    --kertas:#ECEFE7;
+    --kartu:#FFFFFF;
+    --garis:#D8DED3;
+    --teks:#1B2B28;
+    --teks-lembut:#55675F;
+    --madu:#E3A81B;
+    --madu-terang:#F0C053;
+    --madu-tua:#7A5606;
+    --radius:14px;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--kertas);
+    color:var(--teks);
+    font-family:'Figtree',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .bingkai{
+    max-width:440px;
+    margin:0 auto;
+    padding:32px 20px 56px;
+  }
+
+  /* ---------- Profil ---------- */
+  .profil{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .avatar{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    flex:0 0 auto;
+    object-fit:cover;
+    background:var(--hutan);
+    color:var(--madu-terang);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces',Georgia,serif;
+    font-size:20px;
+    letter-spacing:.02em;
+  }
+  .profil h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    font-size:21px;
+    line-height:1.2;
+    margin:0;
+  }
+  .profil p{
+    margin:2px 0 0;
+    font-size:14px;
+    color:var(--teks-lembut);
+  }
+
+  /* ---------- Sesi terdekat ---------- */
+  .sorot{
+    background:var(--hutan);
+    color:#E7EFE9;
+    border-radius:var(--radius);
+    padding:22px 22px 20px;
+    margin-bottom:34px;
+  }
+  .hitung{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.01em;
+    color:var(--madu-terang);
+    margin-bottom:12px;
+  }
+  .titik{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--madu);
+    flex:0 0 auto;
+  }
+  .sorot h2{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    font-size:25px;
+    line-height:1.22;
+    margin:0 0 10px;
+    color:#FFFFFF;
+  }
+  .sorot .jadwal{
+    margin:0 0 18px;
+    font-size:14.5px;
+    color:#B9CEC5;
+  }
+  .tombol{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:var(--madu);
+    color:#241A02;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15.5px;
+    padding:13px 16px;
+    border-radius:10px;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .tombol:hover{background:var(--madu-terang);}
+  .tombol:active{transform:scale(.985);}
+
+  /* ---------- Daftar tautan ---------- */
+  .judul-daftar{
+    font-size:13px;
+    font-weight:600;
+    color:var(--teks-lembut);
+    margin:0 0 12px 2px;
+  }
+  .daftar{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .kartu{
+    display:flex;
+    align-items:stretch;
+    gap:14px;
+    background:var(--kartu);
+    border:1px solid var(--garis);
+    border-radius:var(--radius);
+    padding:14px 16px;
+    text-decoration:none;
+    color:inherit;
+    transition:transform .12s ease, border-color .12s ease;
+  }
+  .kartu:hover{border-color:#B6C2B8;}
+  .kartu:active{transform:scale(.99);}
+
+  .tanggal{
+    flex:0 0 42px;
+    text-align:center;
+    padding-right:14px;
+    border-right:1px solid var(--garis);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .tanggal .hari{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    font-size:21px;
+    line-height:1;
+    color:var(--hutan);
+  }
+  .tanggal .bulan{
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--teks-lembut);
+    margin-top:3px;
+  }
+  .pita{
+    flex:0 0 3px;
+    border-radius:2px;
+    background:var(--madu);
+    margin-right:11px;
+  }
+  .isi{
+    flex:1;
+    min-width:0;
+  }
+  .isi h3{
+    font-size:16px;
+    font-weight:600;
+    line-height:1.3;
+    margin:0;
+  }
+  .isi p{
+    margin:3px 0 0;
+    font-size:13.5px;
+    color:var(--teks-lembut);
+  }
+  .status{
+    align-self:center;
+    flex:0 0 auto;
+    font-size:11.5px;
+    font-weight:600;
+    padding:4px 9px;
+    border-radius:20px;
+    background:#EDF1EA;
+    color:var(--hutan);
+    white-space:nowrap;
+  }
+  .status--buka{background:#FBEFD2;color:var(--madu-tua);}
+
+  /* ---------- Kaki halaman ---------- */
+  .kaki{
+    margin-top:30px;
+    text-align:center;
+  }
+  .bagikan{
+    font-family:inherit;
+    font-size:14px;
+    font-weight:500;
+    color:var(--hutan);
+    background:transparent;
+    border:1px solid var(--garis);
+    border-radius:20px;
+    padding:9px 18px;
+    cursor:pointer;
+    transition:background .12s ease;
+  }
+  .bagikan:hover{background:#E3E8DD;}
+  .kaki small{
+    display:block;
+    margin-top:16px;
+    font-size:12.5px;
+    color:var(--teks-lembut);
+  }
+
+  .kabar{
+    position:fixed;
+    left:50%;
+    bottom:26px;
+    transform:translate(-50%,14px);
+    background:var(--hutan);
+    color:#EAF1EC;
+    font-size:14px;
+    padding:10px 18px;
+    border-radius:22px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .kabar.tampil{opacity:1;transform:translate(-50%,0);}
+
+  a:focus-visible,button:focus-visible{
+    outline:2.5px solid var(--hutan);
+    outline-offset:3px;
+  }
+  .sorot a:focus-visible{outline-color:var(--madu-terang);}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<main class="bingkai">
+  <div class="profil" id="profil"></div>
+  <div id="sorot"></div>
+  <h2 class="judul-daftar" id="judul-daftar" hidden>Tautan lainnya</h2>
+  <div class="daftar" id="daftar"></div>
+  <footer class="kaki">
+    <button class="bagikan" id="bagikan">Bagikan halaman ini</button>
+    <small id="kredit"></small>
+  </footer>
+</main>
+
+<div class="kabar" id="kabar" role="status" aria-live="polite">Tautan disalin</div>
+
+<script>
+/* =======================================================================
+   EDIT BAGIAN INI SAJA — sisanya tidak perlu disentuh.
+   ======================================================================= */
+
+const PROFIL = {
+  nama: "BKPSDM Kabupaten OKI",
+  bio: "Ngobrol Pintar Bersama Kabupaten OKI Seri 2",
+  foto: "..\logo.jpg"   // tempel URL foto di antara tanda kutip, atau biarkan kosong untuk memakai inisial
+};
+
+/* Daftar tautan. Salin satu blok { ... } untuk menambah item baru.
+   - tanggal : format "TAHUN-BULAN-TANGGAL". Kosongkan ("") untuk tautan tanpa tanggal.
+   - waktu   : ditampilkan apa adanya, mis. "19.30 WIB".
+   - status  : teks kecil di kanan kartu. Kosongkan ("") untuk menyembunyikannya.
+   Webinar dengan tanggal terdekat yang belum lewat otomatis naik jadi sorotan di atas. */
+
+const TAUTAN = [
+  {
+    judul: "Mengenal E-Kinerja Harian ASN",
+    catatan: "Sesi live via Zoom, gratis",
+    tanggal: "2026-09-17",
+    waktu: "09.00 WIB",
+    status: "Pendaftaran dibuka",
+    ajakan: "Daftar sekarang",
+    url: "https://s.id/96ThR"
+  },
+  {
+    judul: "LINK ZOOM NGOPI BKPSDM SERI 2",
+    catatan: "Sesi live via Zoom",
+    tanggal: "",
+    waktu: "",
+    status: "",
+    ajakan: "Bergabung Zoom",
+    url: "https://us06web.zoom.us/j/86946551945?pwd=Qy2rsLykvg2uGCyZ4agESqXo8MTrId.1"
+  },
+  {
+    judul: "LINK YOUTUBE NGOPI BKPSDM SERI 2",
+    catatan: "Sesi live via Youtube",
+    tanggal: "",
+    waktu: "",
+    status: "",
+    ajakan: "Tonton Youtube",
+    url: "https://youtube.com/@bkpsdm_oki?si=vXEZstp2jsCk_1JK"
+  },
+  {
+    judul: "ABSENSI & EVALUASI NGOPI BKPSDM SERI 2",
+    catatan: "Maksimal pengisian pukul 13.00 WIB",
+    tanggal: "",
+    waktu: "",
+    status: "",
+    ajakan: "Wajib untuk penerbitan sertifikat",
+    url: "https://forms.gle/z2PDdBFh1gRD5Fr5Ass"
+  },
+  {
+    judul: "MATERI NGOPI BKPSDM SERI 2",
+    catatan: "Materi PPT",
+    tanggal: "",
+    waktu: "",
+    status: "",
+    ajakan: "Buka",
+    url: "https://drive.google.com/drive/folders/1EhtFybUnrVWwRbsLj1syl2D6Uo5GU-Se?usp=sharing"
+  },
+  {
+    judul: "SERTIFIKAT NGOPI BKPSDM SERI 2",
+    catatan: "Sertifikat dapat diakses disini",
+    tanggal: "",
+    waktu: "",
+    status: "",
+    ajakan: "",
+    url: "https://drive.google.com/drive/folders/1ZOK_JTc4afhQ8oayTco5HSRSr71kM35m?usp=sharing"
+  }
+];
+
+/* ======================= akhir bagian yang diedit ======================= */
+
+
+const BULAN = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+const BULAN_PANJANG = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+const HARI = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+
+function keTanggal(teks){
+  if(!teks) return null;
+  const bagian = teks.split("-").map(Number);
+  if(bagian.length !== 3 || bagian.some(isNaN)) return null;
+  return new Date(bagian[0], bagian[1] - 1, bagian[2]);
+}
+
+function hariIni(){
+  const t = new Date();
+  return new Date(t.getFullYear(), t.getMonth(), t.getDate());
+}
+
+function selisihHari(tgl){
+  return Math.round((tgl - hariIni()) / 86400000);
+}
+
+function inisial(nama){
+  return nama.trim().split(/\s+/).slice(0,2).map(k => k[0]).join("").toUpperCase();
+}
+
+function aman(teks){
+  const d = document.createElement("div");
+  d.textContent = teks;
+  return d.innerHTML;
+}
+
+/* --- Profil --- */
+(function(){
+  const wadah = document.getElementById("profil");
+  const avatar = PROFIL.foto
+    ? `<img class="avatar" src="${aman(PROFIL.foto)}" alt="">`
+    : `<div class="avatar" aria-hidden="true">${aman(inisial(PROFIL.nama))}</div>`;
+  wadah.innerHTML = avatar +
+    `<div><h1>${aman(PROFIL.nama)}</h1><p>${aman(PROFIL.bio)}</p></div>`;
+  document.title = "Webinar — " + PROFIL.nama;
+  document.getElementById("kredit").textContent = "Halaman tautan " + PROFIL.nama;
+})();
+
+/* --- Pilih sesi terdekat --- */
+const berjadwal = TAUTAN
+  .map((item, urut) => ({ item, urut, tgl: keTanggal(item.tanggal) }))
+  .filter(x => x.tgl && selisihHari(x.tgl) >= 0)
+  .sort((a, b) => a.tgl - b.tgl);
+
+const terdekat = berjadwal[0] || null;
+
+if(terdekat){
+  const { item, tgl } = terdekat;
+  const sisa = selisihHari(tgl);
+  const hitung = sisa === 0 ? "Berlangsung hari ini"
+               : sisa === 1 ? "Besok"
+               : sisa + " hari lagi";
+  const jadwal = HARI[tgl.getDay()] + ", " + tgl.getDate() + " " +
+                 BULAN_PANJANG[tgl.getMonth()] + " " + tgl.getFullYear() +
+                 (item.waktu ? " · " + item.waktu : "");
+
+  document.getElementById("sorot").innerHTML = `
+    <section class="sorot">
+      <div class="hitung"><span class="titik"></span>${aman(hitung)}</div>
+      <h2>${aman(item.judul)}</h2>
+      <p class="jadwal">${aman(jadwal)}</p>
+      <a class="tombol" href="${aman(item.url)}" target="_blank" rel="noopener">${aman(item.ajakan || "Daftar")}</a>
+    </section>`;
+}
+
+/* --- Daftar tautan sisanya --- */
+(function(){
+  const daftar = document.getElementById("daftar");
+  const sisanya = TAUTAN.filter((_, i) => !terdekat || i !== terdekat.urut);
+
+  if(!sisanya.length){
+    daftar.innerHTML = `<p style="color:var(--teks-lembut);font-size:14px;margin:0;">
+      Belum ada tautan lain. Tambahkan lewat daftar TAUTAN di dalam file ini.</p>`;
+    return;
+  }
+
+  document.getElementById("judul-daftar").hidden = false;
+
+  daftar.innerHTML = sisanya.map(item => {
+    const tgl = keTanggal(item.tanggal);
+    const kiri = tgl
+      ? `<div class="tanggal"><span class="hari">${tgl.getDate()}</span><span class="bulan">${BULAN[tgl.getMonth()]}</span></div>`
+      : `<div class="pita" aria-hidden="true"></div>`;
+    const kelasStatus = /daftar|buka/i.test(item.status) ? "status status--buka" : "status";
+    const status = item.status ? `<span class="${kelasStatus}">${aman(item.status)}</span>` : "";
+    const catatan = item.catatan ? `<p>${aman(item.catatan)}${item.waktu ? " · " + aman(item.waktu) : ""}</p>` : "";
+    return `<a class="kartu" href="${aman(item.url)}" target="_blank" rel="noopener">
+      ${kiri}
+      <div class="isi"><h3>${aman(item.judul)}</h3>${catatan}</div>
+      ${status}
+    </a>`;
+  }).join("");
+})();
+
+/* --- Tombol bagikan --- */
+document.getElementById("bagikan").addEventListener("click", async () => {
+  const alamat = window.location.href;
+  const kabar = document.getElementById("kabar");
+  const tampilkan = teks => {
+    kabar.textContent = teks;
+    kabar.classList.add("tampil");
+    setTimeout(() => kabar.classList.remove("tampil"), 2000);
+  };
+  try{
+    if(navigator.share){
+      await navigator.share({ title: document.title, url: alamat });
+    }else{
+      await navigator.clipboard.writeText(alamat);
+      tampilkan("Tautan disalin");
+    }
+  }catch(e){
+    if(e && e.name === "AbortError") return;
+    tampilkan("Salin alamat di bilah browser");
+  }
+});
+</script>
+</body>
+</html>
